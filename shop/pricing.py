@@ -4,7 +4,7 @@ from shop.catalog import get_product
 def unit_price(sku):
     """Цена одной единицы товара с учётом скидки."""
     product = get_product(sku)
-    discount = product["discount"]
+    discount = product.get("discount", 0)
     return round(product["price"] * (100 - discount) / 100, 2)
 
 
